@@ -35,7 +35,7 @@ def obtener_datos_meteorologicos(api_key, ciudad, pais):
 
 if __name__ == "__main__":
     #tu_usuario_de_geonames
-    geonames_username = "migfel"
+    geonames_username = "" #tu usuario en geoname
     lugar = "Mexico City"  # Cambia esto a la ubicación que desees consultar
     ciudad, pais = obtener_informacion_ubicacion(geonames_username, lugar)
 
