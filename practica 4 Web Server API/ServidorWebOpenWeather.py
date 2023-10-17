@@ -3,7 +3,7 @@ import socketserver
 import requests
 
 # Tu API Key de OpenWeatherMap
-API_KEY = "152b1599f3e42d9d0f559bf3cf348a2b"
+API_KEY = "tu api "
 
 # Función para obtener datos meteorológicos
 def obtener_datos_meteorologicos(ciudad):
@@ -34,6 +34,6 @@ class MyHandler(http.server.SimpleHTTPRequestHandler):
             super().do_GET()
 
 # Configuración del servidor
-with socketserver.TCPServer(("", 8080), MyHandler) as httpd:
-    print("Servidor web en el puerto 8080 para openweathermap")
+with socketserver.TCPServer(("", 9090), MyHandler) as httpd:
+    print("Servidor web en el puerto 9090 para openweathermap")
     httpd.serve_forever()
