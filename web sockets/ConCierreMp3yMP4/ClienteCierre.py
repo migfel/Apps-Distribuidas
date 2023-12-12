@@ -1,19 +1,20 @@
 import asyncio
 import websockets
 
-async def send_file(file_path):
+async def enviar_archivo(ruta_archivo):
     uri = "ws://localhost:8765"
     async with websockets.connect(uri) as websocket:
-        with open(file_path, "rb") as file:
+        with open(ruta_archivo, "rb") as archivo:
             while True:
-                chunk = file.read(1024)
-                if not chunk:
+                fragmento = archivo.read(1024)
+                if not fragmento:
                     break
-                await websocket.send(chunk)
-        await websocket.send(b"")  # Send an empty message to signal the end
+                await websocket.send(fragmento)
+        await websocket.send(b"")  # Enviar un mensaje vacío para señalizar el final
 
 async def main():
-    await send_file("your_audio.mp3")
-    await send_file("your_video.mp4")
+    await enviar_archivo("tu_audio.mp3")
+    await enviar_archivo("tu_video.mp4")
 
 asyncio.get_event_loop().run_until_complete(main())
+
